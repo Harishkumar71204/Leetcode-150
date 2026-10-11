@@ -1,0 +1,19 @@
+#my solution
+class Solution:
+    def topKFrequent(self, nums: list[int], k: int) -> list[int]:
+        d = {}
+        mylist = []
+        mylistf = []
+        for i in nums:
+            if i not in d:
+                d[i] = 1
+            else:
+                d[i] += 1
+        values = sorted(d.values(), reverse = True)
+        length = len(values)
+        for i in range(k):
+            mylist.append(values[i])
+        for key,value in d.items():
+            if value in mylist:
+                mylistf.append(key)
+        return mylistf

@@ -1,0 +1,11 @@
+#efficient way\
+class Solution:
+    def topKFrequent(self, nums: list[int], k: int) -> list[int]:
+        freq = {}
+        for element in nums:
+            if element in freq:
+                freq[element] +=1
+            else:
+                freq[element] = 1
+        result=sorted(freq,key=freq.get,reverse=True)
+        return result[:k]
